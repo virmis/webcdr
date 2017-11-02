@@ -83,6 +83,12 @@ var columns = [{
   cell: 'string',
   formatter: StatusFormatter
 }, {
+  name: 'uniqueid',
+  label: $$('Uniqueid'),
+  editable: false,
+  cell: 'string',
+  formatter: StatusFormatter
+}, {
   name: 'billsec',
   label: $$('Talking time'),
   editable: false,
