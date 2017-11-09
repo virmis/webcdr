@@ -89,19 +89,26 @@ var columns = [{
   cell: 'string',
   formatter: StatusFormatter
 }, {
+  name: 'duration',
+  label: $$('Call duration'),
+  editable: false,
+  cell: 'string',
+  formatter: TimeFormatter
+}, {
   name: 'billsec',
   label: $$('Talking time'),
   editable: false,
   cell: 'string',
   formatter: TimeFormatter
-}, {
-  name: 'record',
-  label: $$('Recording'),
-  editable: false,
-  cell: 'audio'
+//}, {
+//  name: 'record',
+//  label: $$('Recording'),
+//  editable: false,
+//  cell: 'audio'
 }];
 
-var exportsTemplate = $$('Download') + ':&nbsp; <a data-target="records" href="#"><i class="fa fa-file-audio-o"></i>&nbsp;' + $$('call recordings') + '</a>&nbsp;&nbsp;<a data-target="xlsx" href="#"><i class="fa fa-file-excel-o"></i>&nbsp;' + $$('spreadsheet') + '</a>';
+//var exportsTemplate = $$('Download') + ':&nbsp; <a data-target="records" href="#"><i class="fa fa-file-audio-o"></i>&nbsp;' + $$('call recordings') + '</a>&nbsp;&nbsp;<a data-target="xlsx" href="#"><i class="fa fa-file-excel-o"></i>&nbsp;' + $$('spreadsheet') + '</a>';
+var exportsTemplate = $$('Download') + '</a>&nbsp;&nbsp;<a data-target="xlsx" href="#"><i class="fa fa-file-excel-o"></i>&nbsp;' + $$('spreadsheet') + '</a>';
 var ExportLinksView = Marionette.ItemView.extend({
   template: _.template(exportsTemplate),
   className: 'pull-right',
