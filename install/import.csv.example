@@ -1,0 +1,25 @@
+USE asteriskcdrdb
+LOAD DATA LOCAL INFILE '/vagrant/Master.csv'
+INTO TABLE cdr
+FIELDS TERMINATED BY ',' ENCLOSED BY '"'
+LINES TERMINATED BY '\n'
+(
+    accountcode,
+    src,
+    dst,
+    dcontext,
+    clid,
+    channel,
+    dstchannel,
+    lastapp,
+    lastdata,
+    calldate,
+    @dummy,
+    @dummy,
+    duration,
+    billsec,
+    disposition,
+    amaflags,
+    uniqueid,
+    userfield
+);
