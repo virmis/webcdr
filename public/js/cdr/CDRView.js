@@ -42,15 +42,17 @@ var TimeFormatter = _.extend({}, Backgrid.CellFormatter.prototype, {
   }
 });
 
-Backgrid.AudioCell = Backgrid.StringCell.extend({
-  className: 'audio-cell',
+var UrlFormatter = _.extend({}, Backgrid.CellFormatter.prototype, {
+  fromRaw: function (raw, model) {
+    return 'recording';
+  }
+});
+
+Backgrid.UriCell = Backgrid.UriCell.extend({
   render: function () {
-    this.$el.empty();
-    var src = window.URL_PREFIX + '/api/recordings/' + this.model.id;
-    if (this.model.get(this.column.get('name'))) {
-      this.$el.html('<div class="audiojs-download"><a href="' + src + '" download><span class="glyphicon glyphicon-download"></span></a></div><audio src="' + src + '" preload="none"></audio>');
-      audiojs.create(this.$('audio')[0]);
-    }
+    this.constructor.__super__.render.apply(this, arguments);
+    Object.keys(this);
+    this.$("a").attr({href: REC_HOST + "/" + this.model.get('userfield') + '.mp3'});
     return this;
   }
 });
@@ -100,11 +102,12 @@ var columns = [{
   editable: false,
   cell: 'string',
   formatter: TimeFormatter
-//}, {
-//  name: 'record',
-//  label: $$('Recording'),
-//  editable: false,
-//  cell: 'audio'
+}, {
+  name: 'userfield',
+  label: $$('Recording'),
+  editable: false,
+  cell: 'uri',
+  formatter: UrlFormatter
 }];
 
 //var exportsTemplate = $$('Download') + ':&nbsp; <a data-target="records" href="#"><i class="fa fa-file-audio-o"></i>&nbsp;' + $$('call recordings') + '</a>&nbsp;&nbsp;<a data-target="xlsx" href="#"><i class="fa fa-file-excel-o"></i>&nbsp;' + $$('spreadsheet') + '</a>';

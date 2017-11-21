@@ -76,7 +76,8 @@ app.get('/', function (req, res) {
   res.render('index', {
     locale: req.locale,
     $$: i18n.getTranslator(req.locale),
-    urlPrefix: config.web.urlPrefix
+    urlPrefix: config.web.urlPrefix,
+    recHost: config.recordings.recurl
   });
 });
 
