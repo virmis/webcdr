@@ -37,5 +37,10 @@
     ```
 
     Use `admin`/`admincdr` to login for the first time. Don't forget to change the default password!
+
+    Or if you want to use AD authentication start the server:
+    ```
+    node serverLdap.js
+    ```
 11. Use a process manager like forever, pm2, systemd to run server in background.
 12. (optional) Set up standalone webserver to serve static files, proxy dynamic requests to node.js.
