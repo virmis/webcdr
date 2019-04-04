@@ -1,11 +1,7 @@
 [Service]
-ExecStart=/usr/bin/node /opt/webcdr/server.js
+Environment=PORT=8080
+Environment=CONFIG=cdr
+ExecStart=/usr/bin/node /opt/webcdr/serverLdap.js
 Restart=always
-StandardOutput=syslog
-StandardError=syslog
-SyslogIdentifier=webcdr
 User=webcdr
 Group=webcdr
-
-[Install]
-WantedBy=multi-user.target

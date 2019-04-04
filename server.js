@@ -92,8 +92,9 @@ app.use('/admin', require('./lib/admin')(users));
 app.use(express.static(path.join(__dirname, 'public')));
 
 const port = process.env.PORT || 9030;
-app.listen(port);
-util.log('Server is now running on port', port);
+const listen = process.env.LISTEN || '127.0.0.1';
+app.listen(port, listen);
+util.log('Server is now running on %s:%s', listen, port);
 
 function ensureAuthenticated (req, res, next) {
   if (!req.isAuthenticated()) {
