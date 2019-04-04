@@ -31,7 +31,7 @@
 7. Set up your Asterisk to save cdr data into the database you've created
 8. Set up your Asterisk to save call recordings to mp3 files. Files must contain uniqueid in names to find matching cdrs. Also, `record` column in the database table must be set to a non-null value to indicate presence of a recording
 9. You can export following variables before starting service or pass them from service file
-    * CONFIG=cdr        - cdr.ini file will be user as config file (default: config.ini)
+    * CONFIG=cdr        - cdr.ini file will be used as config file (default: config.ini)
     * PORT=8080         - server listen port (default: 9030)
     * LISTEN=0.0.0.0    - listen IP (default: 127.0.0.1)
 10. Set database credentials, recordings glob pattern and other parameters in config.ini
